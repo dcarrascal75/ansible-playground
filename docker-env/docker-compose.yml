@@ -1,0 +1,17 @@
+version: '2'
+services:
+  server1.test:
+    image: centos-ssh
+    hostname: server1.test
+    ports:
+      - "2224:22"
+      - "8081:8080"
+     
+
+  server2.test:
+    image: centos-ssh
+    hostname: server2.test
+    ports:
+      - "2225:22"
+      - "8082:8080"
+

@@ -1,0 +1,9 @@
+FROM sickp/centos-sshd
+
+RUN usermod -p "!" root
+RUN useradd -m -r -c "cenots" centos
+RUN yum -y install sysstat && yum -y install unzip && yum -y install gdb && yum -y install wget && yum -y install sudo
+COPY id_rsa.pub /home/centos/.ssh/authorized_keys
+RUN chmod 400 /home/centos/.ssh/authorized_keys
+COPY id_rsa.pub /root/.ssh/authorized_keys
+RUN chmod 400 /root/.ssh/authorized_keys
